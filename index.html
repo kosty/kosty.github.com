@@ -1,43 +1,20 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Casting thoughts into silicon by kosty</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Casting thoughts into silicon</h1>
-        <p></p>
-
-
-        <p class="view"><a href="https://github.com/kosty">View My GitHub Profile</a></p>
-
-      </header>
-      <section>
-        <h3>Масштаби</h3>
-
-<p>Наскільки великі масштаби в комп’ютерних науках? І як ці масштаби можна спроектувати в "<a href="http://www.urbandictionary.com/define.php?term=real%20life">справжній світ</a>" ?</p>
-
-<p><a href="https://gist.github.com/2841832">Ось тут</a> є гарне порівняння цього явища, в доволі точних величинах, а на <a href="https://gist.github.com/2843375">сусідній сторінці</a> ті ж величини подані, як для звичайних людей</p>
-
-<p>Наступного разу, читаючи з диску текстовий файл можна собі просто уявити 1 рік життя.  Якщо вичитувати 700 файлів... 700 років ((( </p>
-
-<p>Взагалом виходить, що космічні відстані (де до іншої планети доводиться летіти по декілька років) знаходяться у кожного з нас на столі. Навіть більше - майже кожен, хто читає ці рядки, долає такого розмаху  відстані по сотні разів на день.</p>
-      </section>
-      <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
+---
+layout: layout
+title: "Casting thoughts into silicon"
+---
+<article>
+  <time datetime="{{ site.posts.first.date | xmlschema }}">{{ site.posts.first.date | date: "%d %b" }}</time>
+  <h2><a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a></h2>
+  {{ site.posts.first.content }}
+</article>
+<hr>
+<h2>Archive</h2>
+<ol id="archive">
+    {% for post in site.posts offset:1 %}
+    <li>
+        <time datetime="{{ post.date | xmlschema }}">{{ post.date | date: "%Y-%m" }}</time>
+        <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+    </li>
+    {% endfor %}
+</ol>
+{% include footer.html %}
