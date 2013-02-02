@@ -1,0 +1,8 @@
+source ~/.vimrc
+
+autocmd bufnewfile *.markdown so /Users/arsen/Documents/blog/kosty.github.com/_templates/post
+autocmd bufnewfile *.markdown exe "%g/title: .*/s//title: " .expand("%")
+"autocmd bufnewfile *.c exe "1," . 10 . "g/date: .*/s//date: " .strftime("%d-%m-%Y")
+"autocmd Bufwritepre,filewritepre *.c execute "normal ma"
+"autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/lastmodified: .*/s/lastmodified: .*/lastmodified : " .strftime("%c")
+"autocmd bufwritepost,filewritepost *.c execute "normal `a"

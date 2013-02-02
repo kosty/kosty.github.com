@@ -6,5 +6,6 @@ if [ -z "$1" ]; then
 fi
 
 TITLE=${1// /-}
+PSTO_FILE=_posts/`date '+%Y-%m-%d'`-$TITLE.markdown
 
-vim _posts/`date '+%Y-%m-%d'`-$TITLE.markdown
+vim -u _templates/vimrc $PSTO_FILE
