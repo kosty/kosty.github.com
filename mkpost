@@ -22,6 +22,5 @@ summary:
 EOF
 
 echo $PSTO_FILE
-cat $PSTO_FILE
-
+open $PSTO_FILE
 #vim -u _templates/vimrc $PSTO_FILE
