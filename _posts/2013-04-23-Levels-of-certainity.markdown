@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Комплексна припрода грошей
+title: Комплексна природа грошей
 category: memo
 tags: money 
 published: true
