@@ -9,10 +9,10 @@ layout: layout
 <hr>
 <div id="paginator">
   {% if page.previous %}
-    <a id="left" href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Older</a>
+    <a id="left" href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; there</a>
   {% endif %}
   {% if page.next %}
-    <a id="right" href="{{ page.next.url }}" title="{{ page.next.title }}">Newer &rarr;</a>
+    <a id="right" href="{{ page.next.url }}" title="{{ page.next.title }}">here &rarr;</a>
   {% endif %}
 </div>
 {% include footer.html %}
