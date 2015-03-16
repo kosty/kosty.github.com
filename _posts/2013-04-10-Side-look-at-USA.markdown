@@ -3,7 +3,7 @@ layout: post
 title: Інженерний (чи то слов'янський) погляд на суспільство США
 category: engineer's take on
 tags: social phylosophy
-published: true
+published: false
 summary: Декілька думок про США, як антиутопію
 ---
 

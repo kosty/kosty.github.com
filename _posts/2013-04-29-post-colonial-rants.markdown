@@ -42,8 +42,7 @@ summary:
 > Учітеся, читайте і чужому научайтесь. Свого не цурайтесь
 
 
-Жити поруч із сім'єю, мати ціль та втілювати її
-[](http://www.ted.com/talks/dan_buettner_how_to_live_to_be_100.html)
+[heЖити поруч із сім'єю, мати ціль та втілювати її](http://www.ted.com/talks/dan_buettner_how_to_live_to_be_100.html)
 
 
 [про вагу медитації та самоосмислення](http://www.ted.com/talks/matthieu_ricard_on_the_habits_of_happiness.html)
