@@ -35,13 +35,13 @@ rx.Observable.zip(a, b, function(a, b){
 var a = rx.Observable.just(42);
 ```
 
-створюємо довгу послідовність обробки
+створюємо довгий потік з багатьма ланками обробки:
 
 ```
 var b = a.map(function(i){ return i+2; }).map(function(i){ return i*17; });
 ```
 
-поєднуємо довгу та коротку послідовності
+поєднуємо довгий та короткий потоки
 
 ```
 rx.Observable.zip(a, b, function(a, b){ 
