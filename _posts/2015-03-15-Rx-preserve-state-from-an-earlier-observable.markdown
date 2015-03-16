@@ -49,3 +49,4 @@ rx.Observable.zip(a, b, function(a, b){
 })
 ```
 
+[Чудові доки](http://rxmarbles.com/) по Reactive Programming без слів :)
