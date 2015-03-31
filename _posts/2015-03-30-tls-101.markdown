@@ -23,7 +23,8 @@ summary: На основі чого працюють ssl/ssh та пару ни�
 openssl rsa ­-in server.key -­text -­noout
 ```
 
-створення запиту на підпис "certificate signing request"
+створення запиту на підпис - "certificate signing request"
+
 ```
 openssl req ­-new ­-key server.key ­-out server.csr
 ```
@@ -40,7 +41,7 @@ openssl req ­-in server.csr ­-text -­noout
 openssl x509 ­-in server.crt ­-noout ­-text
 ```
 
-`telnet` кріз `https`
+`telnet` крізь `https`
 
 ```
 openssl s_client -debug -state   -connect "github.com:443"  
