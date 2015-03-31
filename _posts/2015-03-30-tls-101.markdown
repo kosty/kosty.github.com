@@ -1,0 +1,48 @@
+---
+layout: post
+title:  Основі SSL/TLS
+category: learning
+tags: ssl tls ssh cryptography commands
+published: true
+summary: На основі чого працюють ssl/ssh та пару низькорівневих команд
+---
+
+Для тих хто геть не шарить в шифруванні з відкритим ключем, ось [коротенька та змістовна презентаха](https://computing.ece.vt.edu/~jkh/Understanding_SSL_TLS.pdf). Мова здебільшого про шифрування трафіку на зразок https, проте згадують і ЕЦП
+
+Для себе декілька нотаток із презентації
+<div>\[ c = m^e mod n \]</div>
+<div>\[ m = c^d mod n \]</div>
+
+змінну `c` - називають шифром, змінну `m` - повідомленням, `d` - приватним ключем, а `n` - відкритим ключем.
+
+### Тепер деякі команди
+
+Перегляд приватного ключа
+```
+openssl rsa ­-in server.key -­text -­noout
+```
+
+створення запиту на підпис "certificate signing request"
+```
+openssl req ­-new ­-key server.key ­-out server.csr
+```
+
+Перегляд деталей 
+
+```
+openssl req ­-in server.csr ­-text -­noout
+```
+
+Перевірка підписаного сертифікату
+
+```
+openssl x509 ­-in server.crt ­-noout ­-text
+```
+
+`telnet` кріз `https`
+
+```
+openssl s_client -debug -state   -connect "github.com:443"  
+```
+
+Бажаючим підписувати сертифікати самостійно - треба читати доку.
