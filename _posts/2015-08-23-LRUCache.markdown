@@ -1,0 +1,194 @@
+---
+layout: post
+title: Last Recently Used Cache
+category: hacks
+tags: hacks development programming code
+published: true
+summary: Простецький (і певно бажний ;) ) LRU Cache
+---
+
+У нещодавній розмові з товаришем підняли запитання, як правильно нахачити [LRU Cache](). Основні сладові зрозумілі - двохзв'язний список та хеш-таблиця. Проте є нюанс. Що зберігати в списку? Ключі? Чи ключі зі значеннями?
+
+Компроміси такі - якщо зберігаємо лише ключі, то для операції `get` треба додаткова робота, щоб замапити ключ в елемент списку (або ж тримати два мапи, одну для значень і одну для елементів списку), якщо ж зберігати і ключі і значення, то операцій менше, проте оновлення значення для існуючого ключа важко зробити через незмінний стан (unmutable). 
+
+
+Я спробував накидати другий варіант - от що вийшло.
+
+
+```
+import java.io.*;
+import java.util.*;
+
+public class LRUCache {
+
+    final Map<String, Node> cache = new HashMap<String, Node>();
+    final int limit;
+    private Node head = null;
+    private Node last = null;
+
+
+    public static void main(String... args){
+        Scanner in = new Scanner(System.in);
+        int limit = 10;
+        LRUCache cache = new LRUCache(limit);
+        String prompt = "lru-cache size: %d limit: %d > ";
+        System.out.print(String.format(prompt, cache.size(), limit));
+
+        while (in.hasNext()){
+            String command = in.next();
+            if ("get".equals(command)){
+                String key = in.next();
+                System.out.println(cache.get(key));
+
+            } else if ("put".equals(command)) {
+                String key = in.next();
+                String value  = in.next();
+                cache.put(key, value);
+            } else if ("remove".equals(command)){
+                String key = in.next();
+                String value = cache.remove(key);
+                System.out.println(value);
+            } else {
+                System.err.println(String.format("Unknown command '%s'. Possible commands put <key> <value>, get <key>, remove <key>.", command));
+                in.nextLine();
+            }
+            
+            System.out.print(String.format(prompt, cache.size(), limit));
+        }
+    }
+
+    public LRUCache(int limit){
+        this.limit = limit;
+    }
+
+    public static class Node {
+        public Node previous;
+        public Node next;
+        public final String key;
+        public String value;
+
+        public Node(String k, String v){
+            key = k;
+            value = v;
+        }
+
+    }
+
+
+    public String get(String key){
+        Node v = cache.get(key);
+
+        if (v == null)
+            return null;
+
+        moveToHead(v);
+        return v.value;
+    }
+
+    public void put(String key, String value){
+        Node n = cache.get(key);
+        if ( n != null){
+            n.value = value;
+            moveToHead(n);
+            return;
+        } 
+
+        if (limitExceeded())
+            removeLast();
+        
+
+        n = createNode(key, value);
+        cache.put(key, n);
+    }
+
+    public String remove(String key){
+        Node n = cache.get(key);
+        if (n == null)
+            return null;
+
+        moveToTail(n);
+        removeLast();
+        return n.value;
+    }
+
+    public int size(){
+        return cache.size();
+    }
+
+    private boolean limitExceeded(){
+        return limit <= cache.size();
+    }
+
+    private void moveToTail(Node v){
+        if (v == last)
+            return;
+
+        Node prev = v.previous;
+        Node next = v.next;
+
+        if (v == head)
+            head = v.next;
+
+        if (prev != null)
+            prev.next = next;
+        if (next != null)
+            next.previous = prev;
+
+        v.next = null;
+        v.previous = last;
+        last.next = v;
+        last = v;
+    }
+
+    private void moveToHead(Node v){
+        if (v == head)
+            return;
+
+        Node prev = v.previous;
+        Node next = v.next;
+
+        if (v == last)
+            last = v.previous;
+
+        if (prev != null)
+            prev.next = next;
+        if (next != null)
+            next.previous = prev;
+
+        
+        v.previous = null;
+        v.next = head;
+        head.previous = v;
+        head = v;
+
+    }
+
+    private void removeLast(){
+        Node prev = last.previous;
+        
+        if (prev != null)
+            prev.next = null;
+
+        cache.remove(last.key);
+        last = prev;
+
+        if (last == null)
+            head = last;
+    }
+
+    private Node createNode(String key, String value){
+        Node n = new Node(key, value);
+        n.next = head;
+        if (head != null)
+            head.previous = n;
+
+        head = n;
+        if (last == null)
+            last = n;
+
+        return n;
+    }
+
+}
+```
+
