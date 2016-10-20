@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Як готуватись до інтерв'ю та життя після універу
+image: http://t3.gstatic.com/images?q=tbn:ANd9GcSrnXGSGEQ5stp8f9KNV1WXnLzVoXsf30lp5fGMD8FdBBjVk3US
 category: 
 tags: interview, reading lists, deep learning
 published: true
