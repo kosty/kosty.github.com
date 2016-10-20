@@ -5,7 +5,7 @@ image: http://t3.gstatic.com/images?q=tbn:ANd9GcSrnXGSGEQ5stp8f9KNV1WXnLzVoXsf30
 category: 
 tags: interview, reading lists, deep learning
 published: true
-summary: How to prepare for engineering interview
+summary: Вчити англійську, вчити основи алгоритімв, резюме на arsen@твіттер.ком
 ---
 
 # TL;DR
