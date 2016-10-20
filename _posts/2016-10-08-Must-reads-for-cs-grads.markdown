@@ -9,7 +9,8 @@ summary: How to prepare for engineering interview
 
 # TL;DR
 
-Ось всі лінки для швидкого пошуку: 
+Ось всі лінки для швидкого пошуку:
+
 * Для бажаючих працювати в Твітері - резюме кидайте на arsen@твіттер.ком
 * [Основи алгоритмів](https://mitpress.mit.edu/books/introduction-algorithms) 
 * [Алгоритми та структури данних](https://www.amazon.com/Data-Structures-Algorithms-Alfred-Aho/dp/0201000237/ref=sr_1_3?s=books&ie=UTF8&qid=1475961977&sr=1-3&keywords=Data+Structures+and+Algorithms)
