@@ -5,7 +5,7 @@ image: http://t3.gstatic.com/images?q=tbn:ANd9GcSrnXGSGEQ5stp8f9KNV1WXnLzVoXsf30
 category: 
 tags: interview, reading, deep-learning
 published: true
-summary: Вчити англійську, вчити основи алгоритмів, резюме на arsen@твіттер.ком, всі лінки зібрано в розділі tl;dr, прочитайте Sapiens чудовий мікс науки і журналістики
+summary: Вчити англійську, вчити основи алгоритмів, резюме на arsen@твіттер.ком, всі лінки зібрано в розділі tl;dr, прочитайте Sapiens, чудовий мікс науки і журналістики
 ---
 
 # TL;DR

@@ -1,4 +1,4 @@
 auto: true
-markdown: rdiscount
-pygments: true
+markdown: kramdown
+highlighter: rouge
 permalink: /blog/:title
