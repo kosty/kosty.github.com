@@ -1,11 +1,11 @@
 ---
 layout: layout
 ---
-<article>
+<section>
   <time datetime="{{ page.date | xmlschema }}">{{ page.date | date: "%d %b, %Y" }}</time>
   <h2>{{ page.title }}</h2>
   {{ content }}
-</article>
+</section>
 <hr>
 <div id="paginator">
   {% if page.previous %}
@@ -15,4 +15,3 @@ layout: layout
     <a id="right" href="{{ page.next.url }}" title="{{ page.next.title }}">here &rarr;</a>
   {% endif %}
 </div>
-{% include footer.html %}

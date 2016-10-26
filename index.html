@@ -2,11 +2,11 @@
 layout: layout
 title: "Casting thoughts into silicon"
 ---
-<article>
+<section>
   <time datetime="{{ site.posts.first.date | xmlschema }}">{{ site.posts.first.date | date: "%d %b" }}</time>
   <h2><a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a></h2>
   {{ site.posts.first.content }}
-</article>
+</section>
 <hr>
 <h2>Archive</h2>
 <ol id="archive">
@@ -17,4 +17,3 @@ title: "Casting thoughts into silicon"
     </li>
     {% endfor %}
 </ol>
-{% include footer.html %}
